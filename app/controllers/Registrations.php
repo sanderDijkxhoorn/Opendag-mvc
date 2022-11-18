@@ -76,19 +76,28 @@ class Registrations extends Controller
           // Hash the password
           $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-          $createduser = $this->registrationsModel->createUser($_POST);
+          // Check if the user exists
+          $userexist = $this->registrationsModel->checkExist($_POST['username'], $_POST['email']);
 
-          if ($createduser) {
-            $data = ['success' => 'U bent geregistreerd, u kunt nu inloggen'];
-            $this->view('registrations/login', $data);
+          // Check if $user is empty
+          if ($userexist) {
+            $createduser = $this->registrationsModel->createUser($_POST);
+
+            if ($createduser) {
+              $data = ['success' => 'U bent geregistreerd, u kunt nu inloggen'];
+              $this->view('registrations/login', $data);
+            } else {
+              $data = ['error' => 'Er is iets misgegaan tijdens het registreren'];
+              $this->view('registrations/register', $data);
+            }
           } else {
-            $data = ['error' => 'Er is iets misgegaan tijdens het registreren'];
+            $data = ['error' => 'Deze gebruikersnaam of email is al in gebruik'];
             $this->view('registrations/register', $data);
           }
         }
       } catch (PDOException $e) {
         echo 'Er is iets misgegaan tijdens het registreren (PDOException)';
-        header('Refresh: 3; url=' . URLROOT . '/countries/index');
+        header('Refresh: 3; url=' . URLROOT . '/registrations/register');
       }
     }
   }
