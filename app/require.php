@@ -8,8 +8,6 @@ require_once 'libraries/Database.php';
 // Require navbar
 require_once 'views/includes/navbar.php';
 
-
-
 // Maak een instantie van de Core class
 $init = new Core();
 

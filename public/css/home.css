@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'PT Sans', sans-serif;
+    height: 100vh;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+#information {
+    background: url('https://cdn.discordapp.com/attachments/1019216084596953108/1043156954027130880/background-home.png') repeat fixed center;
+    background-size: cover;
+    height: 120vh;
+}
+
+#information>.div {
+    position: absolute;
+    width: 53%;
+    border: 4px rgb(0, 0, 0);
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.74);
+    text-align: center;
+    padding-top: 5rem;
+    margin-top: 20rem;
+    margin-left: 50vw;
+    transform: translate(-50%);
+}
+
+.button1 {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 2em 1em;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid rgb(69, 82, 102);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+span {
+    background: rgb(69, 82, 102);
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span {
+    width: 100%;
+}
+
+.button1:hover {
+    border: none;
+    background-color: rgb(69, 82, 102);
+    color: white;
+
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: black;
+    text-decoration: none;
+}
