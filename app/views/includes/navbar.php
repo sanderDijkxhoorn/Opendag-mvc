@@ -3,11 +3,12 @@ require_once APPROOT . '/models/Navbar.php';
 
 $lala = new Navbar();
 
-$navbar_role = $lala->getRole();
+if (isset($_SESSION['user_id'])) {
+    $user = $lala->getRole();
+    $role = $navbar_role->role;
+}
 
-$data = [
-    'role' => $navbar_role->role
-];
+var_dump($role);
 ?>
 
 <link rel="stylesheet" href="/css/nav-foot.css">
@@ -30,28 +31,28 @@ $data = [
     </div>
 
     <div class="nav-links">
-        <a href="/overige-info.php">Overige Informatie</a>
-        <a href="/overview.php">Overview</a>
-        <a href="/comments/">Comment</a>
-        <a href="/archive.php">Projecten</a>
+        <a href="<?= URLROOT ?>/informations/index">Overige Informatie</a>
+        <a href="<?= URLROOT ?>/overviews/index">Overview</a>
+        <a href="<?= URLROOT ?>/comments/index">Comment</a>
+        <a href="<?= URLROOT ?>/archives/index">Projecten</a>
 
         <?php
         // Start the session
         session_start();
 
-        if (isset($data)) {
-            if ($data['role'] == 'admin') {
+        if (isset($role)) {
+            if ($role == 'admin') {
                 // Show the admin links
-                echo '<a href="' . URLROOT . '/enquete/read">Enquete read</a>';
-                echo '<a href="' . URLROOT . '/enquete/create">Enquete create</a>';
+                echo '<a href="' . URLROOT . '/enquetes/read">Enquete read</a>';
+                echo '<a href="' . URLROOT . '/enquetes/create">Enquete create</a>';
                 echo '<a href="' . URLROOT . '/accounts/read">Manage accounts</a>';
             }
 
-            echo '<a href="' . URLROOT . '/enquete/make/2">Enquete</a>';
+            echo '<a href="' . URLROOT . '/enquetes/make/2">Enquete</a>';
             echo '<a href="' . URLROOT . '/registrations/logout">Logout</a>';
         } else {
-            echo '<a href="/login.php">Login</a>';
-            echo '<a href="/register.php">Register</a>';
+            echo '<a href="' . URLROOT . '/registrations/login">Login</a>';
+            echo '<a href="' . URLROOT . '/registrations/register">Register</a>';
         }
         ?>
     </div>

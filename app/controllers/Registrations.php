@@ -13,34 +13,37 @@ class Registrations extends Controller
     $this->view('registrations/index');
   }
 
-  // public function login($id = null)
-  // {
-  //   if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  //     try {
-  //       // Sanitize POST array
-  //       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  public function login()
+  {
+    if ($_SERVER['REQUEST_METHOD'] == "GET") {
+      $this->view('registrations/login');
+    } else if ($_SERVER['REQUEST_METHOD'] == "POST") {
+      try {
+        // Sanitize POST array
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-  //       // Update the data with the form data
-  //       $this->countryModel->updateCountry($_POST);
+        // // Check if the user exists
+        // $user = $this->registrationsModel->getUser($_POST['email']);
 
-  //       // Redirect to the index page
-  //       header('Location: ' . URLROOT . '/countries/index');
-  //     } catch (PDOException $e) {
-  //       // Show the error message
-  //       echo 'Er is iets misgegaan tijdens het bewerken van een land';
-  //       header('Refresh: 2; url=' . URLROOT . '/countries/index');
-  //     }
-  //   } else {
-  //     $row = $this->countryModel->getSingleCountry($id);
+        // // Check if the password is correct
+        // if (password_verify($_POST['password'], $user->password)) {
+        //   // Create session
+        //   $this->createUserSession($user);
+        // } else {
+        //   // Show the error message
+        //   echo 'Het wachtwoord is niet correct';
+        //   header('Refresh: 2; url=' . URLROOT . '/registrations/login');
+        // }
 
-  //     $data = [
-  //       'title' => '<h1>Update landenoverzicht</h1>',
-  //       'row' => $row
-  //     ];
-
-  //     $this->view('countries/update', $data);
-  //   }
-  // }
+        // Redirect to the index page
+        header('Location: ' . URLROOT . '/index');
+      } catch (PDOException $e) {
+        // Show the error message
+        echo 'Er is iets misgegaan tijdens het inloggen';
+        header('Refresh: 2; url=' . URLROOT . '/registrations/login');
+      }
+    }
+  }
 
   // public function register()
   // {
