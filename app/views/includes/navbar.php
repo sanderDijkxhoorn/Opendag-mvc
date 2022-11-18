@@ -1,14 +1,21 @@
 <?php
-require_once APPROOT . '/models/Navbar.php';
+// Start session
+session_start();
 
-$lala = new Navbar();
+// Require Registration so we can fetch the role.
+require_once APPROOT . '/models/Registration.php';
 
+// Create new instance of Registration
+$lala = new Registration();
+
+// Check if the user id is set.
 if (isset($_SESSION['user_id'])) {
+    // Get the role
     $user = $lala->getRole();
-    $role = $navbar_role->role;
-}
 
-var_dump($role);
+    // Create role variable
+    $role = $user->role;
+}
 ?>
 
 <link rel="stylesheet" href="/css/nav-foot.css">
@@ -37,9 +44,6 @@ var_dump($role);
         <a href="<?= URLROOT ?>/archives/index">Projecten</a>
 
         <?php
-        // Start the session
-        session_start();
-
         if (isset($role)) {
             if ($role == 'admin') {
                 // Show the admin links

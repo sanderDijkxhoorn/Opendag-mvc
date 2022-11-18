@@ -17,6 +17,7 @@ form,
 .content {
     width: 30%;
     margin: 0px auto;
+    margin-top: 5em;
     padding: 20px;
     border: 1px solid #B0C4DE;
     background: white;
@@ -51,24 +52,6 @@ form,
     background: #3560a1;
     border: none;
     border-radius: 5px;
-}
-
-.error {
-    width: 92%;
-    margin: 0px auto;
-    padding: 10px;
-    border: 1px solid #f50400;
-    color: #f50400;
-    background: #f2dede;
-    border-radius: 5px;
-    text-align: left;
-}
-
-.success {
-    color: #3c763d;
-    background: #dff0d8;
-    border: 1px solid #3c763d;
-    margin-bottom: 20px;
 }
 
 /* users */

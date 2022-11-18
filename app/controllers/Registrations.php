@@ -22,21 +22,41 @@ class Registrations extends Controller
         // Sanitize POST array
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-        // // Check if the user exists
-        // $user = $this->registrationsModel->getUser($_POST['email']);
+        // Check if the user exists
+        $user = $this->registrationsModel->getUserByUsername($_POST['username']);
 
-        // // Check if the password is correct
-        // if (password_verify($_POST['password'], $user->password)) {
-        //   // Create session
-        //   $this->createUserSession($user);
-        // } else {
-        //   // Show the error message
-        //   echo 'Het wachtwoord is niet correct';
-        //   header('Refresh: 2; url=' . URLROOT . '/registrations/login');
-        // }
+        // Check if $user is empty
+        if (empty($user)) {
+          // Show the error message
+          $data = ['error' =>  'Gebruikersnaam of wachtwoord is onjuist'];
+          $this->view('registrations/login', $data);
+        } else {
+          // Check if the password is correct
+          if (password_verify($_POST['password'], $user->password)) {
+            // Set the session
+            $_SESSION['user_id'] = $user->id;
 
-        // Redirect to the index page
-        header('Location: ' . URLROOT . '/index');
+            // Get the role
+            $role = $this->registrationsModel->getRole();
+
+            // Check if the role is admin
+            if ($role->role == 'admin') {
+              // Show success message and redirect to the index page after 3 seconds
+              $data = ['success' => 'U bent ingelogd als admin :)'];
+              $this->view('registrations/login', $data);
+              header('Refresh: 3; url=' . URLROOT . '/index');
+            } else {
+              // Show success message and redirect to the index page after 3 seconds
+              $data = ['success' => 'U bent ingelogd :)'];
+              $this->view('registrations/login', $data);
+              header('Refresh: 3; url=' . URLROOT . '/index');
+            }
+          } else {
+            // Show the error message
+            $data = ['error' =>  'Gebruikersnaam of wachtwoord is onjuist'];
+            $this->view('registrations/login', $data);
+          }
+        }
       } catch (PDOException $e) {
         // Show the error message
         echo 'Er is iets misgegaan tijdens het inloggen';
