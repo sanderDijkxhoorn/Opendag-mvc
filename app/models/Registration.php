@@ -25,4 +25,10 @@ class Registration
 
         return $result;
     }
+
+    public function createUser($postData)
+    {
+        var_dump($postData);
+        return false;
+    }
 }

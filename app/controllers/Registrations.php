@@ -7,12 +7,6 @@ class Registrations extends Controller
     $this->registrationsModel = $this->model('Registration');
   }
 
-  public function index()
-  {
-    // Load the view
-    $this->view('registrations/index');
-  }
-
   public function login()
   {
     if ($_SERVER['REQUEST_METHOD'] == "GET") {
@@ -59,41 +53,45 @@ class Registrations extends Controller
         }
       } catch (PDOException $e) {
         // Show the error message
-        echo 'Er is iets misgegaan tijdens het inloggen';
-        header('Refresh: 2; url=' . URLROOT . '/registrations/login');
+        echo 'Er is iets misgegaan tijdens het inloggen (PDOException)';
+        header('Refresh: 3; url=' . URLROOT . '/registrations/login');
       }
     }
   }
 
-  // public function register()
-  // {
-  //   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  //     try {
-  //       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  public function register()
+  {
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+      $this->view('registrations/register');
+    } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      try {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-  //       $this->countryModel->createCountry($_POST);
+        // Check if the passwords match
+        if ($_POST['password'] != $_POST['password_confirm']) {
+          // Show the error message
+          $data = ['error' => 'De wachtwoorden komen niet overeen'];
+          $this->view('registrations/register', $data);
+        } else {
+          // Hash the password
+          $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-  //       header('Location: ' . URLROOT . '/countries/index');
-  //     } catch (PDOException $e) {
-  //       echo 'Er is iets misgegaan tijdens het aanmaken van het land';
-  //       header('Refresh: 2; url=' . URLROOT . '/countries/index');
-  //     }
-  //   } else {
-  //     $data = [
-  //       'title' => '<h1>Voeg een land toe</h1>',
-  //       'name' => '',
-  //       'capital' => '',
-  //       'population' => '',
-  //       'area' => '',
-  //       'nameError' => '',
-  //       'capitalError' => '',
-  //       'populationError' => '',
-  //       'areaError' => ''
-  //     ];
+          $createduser = $this->registrationsModel->createUser($_POST);
 
-  //     $this->view('countries/create', $data);
-  //   }
-  // }
+          if ($createduser) {
+            $data = ['success' => 'U bent geregistreerd, u kunt nu inloggen'];
+            $this->view('registrations/login', $data);
+          } else {
+            $data = ['error' => 'Er is iets misgegaan tijdens het registreren'];
+            $this->view('registrations/register', $data);
+          }
+        }
+      } catch (PDOException $e) {
+        echo 'Er is iets misgegaan tijdens het registreren (PDOException)';
+        header('Refresh: 3; url=' . URLROOT . '/countries/index');
+      }
+    }
+  }
 
   public function logout()
   {

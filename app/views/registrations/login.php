@@ -8,6 +8,9 @@ if (isset($data['error'])) {
     echo "<p class='success'>" . $data['success'] . "</p>";
 }
 ?>
+<div class="header">
+    <h2>Inloggen</h2>
+</div>
 
 <form action="<?= URLROOT ?>/registrations/login" method="POST">
     <div class="input-group">
@@ -22,6 +25,6 @@ if (isset($data['error'])) {
         <button type="submit" class="btn">Login</button>
     </div>
     <p>
-        Nog geen account? <a href="register.php">Meld je aan!</a>
+        Nog geen account? <a href="<?= URLROOT ?>/registrations/register">Meld je aan!</a>
     </p>
 </form>
