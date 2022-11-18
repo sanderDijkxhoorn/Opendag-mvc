@@ -6,15 +6,16 @@
 
 #information>.div {
     position: absolute;
-    width: 53%;
+    width: 75%;
     border: 4px rgb(0, 0, 0);
     padding: 3rem;
     background: rgba(255, 255, 255, 0.74);
     text-align: center;
     padding-top: 5rem;
-    margin-top: 20rem;
+    margin-top: 25vh;
     margin-left: 50vw;
     transform: translate(-50%);
+    z-index: 10;
 }
 
 .button1 {
@@ -28,31 +29,7 @@
     background: transparent;
     color: #fff;
     cursor: pointer;
-    position: relative;
     overflow: hidden;
-}
-
-span {
-    background: rgb(69, 82, 102);
-    height: 100%;
-    width: 0;
-    border-radius: 25px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    transition: 0.5s;
-}
-
-button:hover span {
-    width: 100%;
-}
-
-.button1:hover {
-    border: none;
-    background-color: rgb(69, 82, 102);
-    color: white;
-
 }
 
 a:link,

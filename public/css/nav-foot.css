@@ -82,6 +82,7 @@ footer {
     width: 100%;
     background-color: whitesmoke;
     position: relative;
+    z-index: 10000000;
 }
 
 .nav>.nav-header {
@@ -119,7 +120,7 @@ footer {
     display: none;
 }
 
-@media (max-width:600px) {
+@media (max-width:1100px) {
     .nav>.nav-btn {
         display: inline-block;
         position: absolute;

@@ -7,3 +7,7 @@
     </ul>
     <p>© Copyright MBO Utrecht.</p>
 </footer>
+
+</body>
+
+</html>
