@@ -1,1 +1,1 @@
-wtf
+<?= $data['logoutStatus']; ?>

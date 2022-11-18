@@ -42,13 +42,13 @@ $data = [
         if (isset($data)) {
             if ($data['role'] == 'admin') {
                 // Show the admin links
-                echo '<a href="/enquete-admin/read.php">Enquete read</a>';
-                echo '<a href="/enquete-admin/create.php">Enquete create</a>';
-                echo '<a href="/registratie/read.php"> Manage accounts</a>';
+                echo '<a href="' . URLROOT . '/enquete/read">Enquete read</a>';
+                echo '<a href="' . URLROOT . '/enquete/create">Enquete create</a>';
+                echo '<a href="' . URLROOT . '/accounts/read">Manage accounts</a>';
             }
 
-            echo '<a href="/enquete-admin/make.php?id=1">Enquete</a>';
-            echo '<a href="/logout.php">Logout</a>';
+            echo '<a href="' . URLROOT . '/enquete/make/2">Enquete</a>';
+            echo '<a href="' . URLROOT . '/registrations/logout">Logout</a>';
         } else {
             echo '<a href="/login.php">Login</a>';
             echo '<a href="/register.php">Register</a>';
