@@ -1,5 +1,5 @@
 #information {
-    background: url('https://cdn.discordapp.com/attachments/1019216084596953108/1043156954027130880/background-home.png') repeat fixed center;
+    background: url('/img/background-home.png') repeat fixed center;
     background-size: cover;
     height: 120vh;
 }
