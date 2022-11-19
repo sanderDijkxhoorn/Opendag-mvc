@@ -1,11 +1,18 @@
 <?php
-class HomePages extends Controller
+class Homepages extends Controller
 {
   public function index()
   {
-    $data = [
-      'title' => "Homepage"
-    ];
-    $this->view('homepages/index', $data);
+    $this->view('homepages/index');
+  }
+
+  public function about()
+  {
+    $this->view('homepages/about');
+  }
+
+  public function archive()
+  {
+    $this->view('homepages/archive');
   }
 }
