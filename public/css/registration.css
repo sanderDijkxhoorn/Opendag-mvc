@@ -1,18 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap%27');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-family: 'PT Sans', sans-serif;
-    height: 100vh;
-    width: 100%;
-    scroll-behavior: smooth;
-}
-
 /* login & register */
 .header {
     width: 30%;
@@ -64,24 +51,6 @@ form,
     background: #3560a1;
     border: none;
     border-radius: 5px;
-}
-
-.error {
-    width: 92%;
-    margin: 0px auto;
-    padding: 10px;
-    border: 1px solid #f50400;
-    color: #f50400;
-    background: #f2dede;
-    border-radius: 5px;
-    text-align: left;
-}
-
-.success {
-    color: #3c763d;
-    background: #dff0d8;
-    border: 1px solid #3c763d;
-    margin-bottom: 20px;
 }
 
 /* users */
