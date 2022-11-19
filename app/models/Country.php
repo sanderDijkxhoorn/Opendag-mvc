@@ -11,9 +11,8 @@ class Country
   public function getCountries()
   {
     $this->db->query("SELECT * FROM `country`;");
-    $result = $this->db->resultSet();
 
-    return $result;
+    return $this->db->resultSet();;
   }
 
   public function getSingleCountry($id)

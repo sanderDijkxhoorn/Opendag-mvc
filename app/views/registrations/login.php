@@ -8,6 +8,7 @@ if (isset($data['error'])) {
     echo "<p class='success'>" . $data['success'] . "</p>";
 }
 ?>
+
 <div class="header">
     <h2>Inloggen</h2>
 </div>
