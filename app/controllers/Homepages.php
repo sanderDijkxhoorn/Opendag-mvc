@@ -10,9 +10,4 @@ class Homepages extends Controller
   {
     $this->view('homepages/about');
   }
-
-  public function archive()
-  {
-    $this->view('homepages/archive');
-  }
 }
