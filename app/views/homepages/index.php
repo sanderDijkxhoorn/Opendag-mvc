@@ -18,7 +18,7 @@
             </p>
 
             <button type="button" class="button1">
-                <a href="./overige-info.php">MEER INFORMATIE</a>
+                <a href="/homepages/about">MEER INFORMATIE</a>
             </button>
         </div>
     </div>

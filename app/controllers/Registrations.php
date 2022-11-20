@@ -79,8 +79,8 @@ class Registrations extends Controller
           // Check if the user exists
           $userexist = $this->registrationsModel->checkExist($_POST['username'], $_POST['email']);
 
-          // Check if $user is empty
-          if ($userexist) {
+          // Check if $userexist exists
+          if (!$userexist) {
             $createduser = $this->registrationsModel->createUser($_POST);
 
             if ($createduser) {

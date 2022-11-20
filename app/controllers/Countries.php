@@ -49,7 +49,7 @@ class Countries extends Controller
         header('Location: ' . URLROOT . '/countries/index');
       } catch (PDOException $e) {
         // Show the error message
-        echo 'Er is iets misgegaan tijdens het bewerken van een land (PDOException)' ;
+        echo 'Er is iets misgegaan tijdens het bewerken van een land (PDOException)';
         header('Refresh: 2; url=' . URLROOT . '/countries/index');
       }
     } else {
