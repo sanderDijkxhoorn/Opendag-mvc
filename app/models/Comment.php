@@ -10,7 +10,7 @@ class Comment
 
     public function getComments()
     {
-        $this->db->query("SELECT * FROM `comments`;");
+        $this->db->query("SELECT `id`, `name`, `email`, `comment` FROM `comments`;");
         $result = $this->db->resultSet();
 
         return $result;
