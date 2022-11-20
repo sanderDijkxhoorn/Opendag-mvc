@@ -5,6 +5,13 @@
 if (isset($data['deleteStatus'])) {
   echo '<div class="alert alert-success" role="alert">' . $data['deleteStatus'] . '</div>';
 }
+
+// If $data['error'] is set, show the error message
+if (isset($data['error'])) {
+  echo "<p class='error'>" . $data['error'] . "</p>";
+} else if (isset($data['success'])) {
+  echo "<p class='success'>" . $data['success'] . "</p>";
+}
 ?>
 
 <a href="<?= URLROOT; ?>/registrations/register">Nieuw account aanmaken</a>

@@ -1,19 +1,26 @@
+<link rel="stylesheet" href="/css/accounts.css">
+
 <form action="/accounts/update" method="POST">
     <table>
         <tbody>
+            <input type="hidden" name="id" value="<?= $data['row']->id; ?>">
             <tr>
                 <td>
-                    <input type="text" name="name" id="name" value="<?= $data["row"]->username ?>">
+                    <input type="text" name="username" value="<?= $data["row"]->username ?>">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="text" name="capitalCity" id="capitalCity" value="<?= $data["row"]->email ?>">
+                    <input type="text" name="email" value="<?= $data["row"]->email ?>">
                 </td>
             </tr>
             <tr>
+                <!-- Select menu between admin and user -->
                 <td>
-                    <input type="text" name="continent" id="continent" value="<?= $data["row"]->role ?>">
+                    <select name="role">
+                        <option value="user" <?= $data["row"]->role == "user" ? "selected" : "" ?>>User</option>
+                        <option value="admin" <?= $data["row"]->role == "admin" ? "selected" : "" ?>>Admin</option>
+                    </select>
                 </td>
             </tr>
             <tr>

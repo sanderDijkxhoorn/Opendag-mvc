@@ -26,10 +26,24 @@ class Account
     public function updateAccount($post)
     {
         $this->db->query("UPDATE `users` SET `username` = :username, `email` = :email, `role` = :role WHERE `id` = :id;");
-        $this->db->bind(':id', $post['id'], PDO::PARAM_INT);
-        $this->db->bind(':username', $post['username'], PDO::PARAM_STR);
-        $this->db->bind(':email', $post['email'], PDO::PARAM_STR);
-        $this->db->bind(':role', $post['role'], PDO::PARAM_STR);
+        if (isset($post['id'])) {
+            $this->db->bind(':id', $post['id'], PDO::PARAM_INT);
+        } else {
+            return false;
+        }
+
+        // Check if username, email or role are set and for each bind the value to the query
+        $binds = [
+            ':username' => $post['username'],
+            ':email' => $post['email'],
+            ':role' => $post['role']
+        ];
+
+        foreach ($binds as $key => $value) {
+            if (isset($value)) {
+                $this->db->bind($key, $value, PDO::PARAM_STR);
+            }
+        }
 
         return $this->db->execute();
     }
