@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/css/accounts.css">
+
 <?php
 // Show deleteStatus if exists as alert
 if (isset($data['deleteStatus'])) {
