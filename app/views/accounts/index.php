@@ -23,6 +23,19 @@ if (isset($data['error'])) {
     <th>delete</th>
   </thead>
   <tbody>
-    <?= $data['accounts'] ?>
+    <?php
+    // Make the data available in the view
+    $rows = '';
+    foreach ($data['accounts'] as $value) {
+      echo "
+          <tr>
+            <td>" . htmlentities($value->username, ENT_QUOTES, 'ISO-8859-1') . "</td>
+            <td>" . htmlentities($value->email, ENT_QUOTES, 'ISO-8859-1') . "</td>
+            <td>" . htmlentities($value->role, ENT_QUOTES, 'ISO-8859-1') . "</td>
+            <td><a href='" . URLROOT . "/accounts/update/$value->id'>update</a></td>
+            <td><a href='" . URLROOT . "/accounts/delete/$value->id'>delete</a></td>
+          </tr>";
+    }
+    ?>
   </tbody>
 </table>
