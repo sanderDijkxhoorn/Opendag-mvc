@@ -13,14 +13,17 @@ text {
     margin-left: auto;
     margin-right: auto;
 }
-  
-th, td {
+
+th,
+td {
     text-align: left;
     padding: 8px;
 }
-  
-#read tr:nth-child(even){background-color: #f2f2f2}
-  
+
+#read tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
 th {
     background-color: #1DAEEC;
     color: rgb(255, 255, 255);
