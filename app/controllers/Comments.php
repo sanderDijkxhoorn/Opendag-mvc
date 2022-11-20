@@ -23,9 +23,7 @@ class Comments extends Controller
             </div>";
             }
 
-            $data = [
-                'comments' => $rows
-            ];
+            $data = ['comments' => $rows];
 
             // Load the view
             $this->view('comments/index', $data);
