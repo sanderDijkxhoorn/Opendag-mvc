@@ -91,12 +91,30 @@ class Accounts extends Controller
 
     public function delete($id)
     {
+        // Delete the account
         $this->accountModel->deleteAccount($id);
 
-        $data = ['deleteStatus' => "Het land met id $id is verwijderd"];
+        // Get accounts
+        $accounts = $this->accountModel->getAccounts();
 
-        $this->view('countries/delete', $data);
+        // Make the data available in the view
+        $rows = '';
+        foreach ($accounts as $value) {
+            $rows .= "
+        <tr>
+          <td>" . htmlentities($value->username, ENT_QUOTES, 'ISO-8859-1') . "</td>
+          <td>" . htmlentities($value->email, ENT_QUOTES, 'ISO-8859-1') . "</td>
+          <td>" . htmlentities($value->role, ENT_QUOTES, 'ISO-8859-1') . "</td>
+          <td><a href='" . URLROOT . "/accounts/update/$value->id'>update</a></td>
+          <td><a href='" . URLROOT . "/accounts/delete/$value->id'>delete</a></td>
+        </tr>";
+        }
 
-        header('Refresh: 2; URL=' . URLROOT . '/countries/index');
+        $data = [
+            'deleteStatus' => "Het account met id $id is verwijderd",
+            'accounts' => $rows
+        ];
+
+        $this->view('accounts/index', $data);
     }
 }
