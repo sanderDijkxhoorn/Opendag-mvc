@@ -14,8 +14,6 @@ if (isset($data['error'])) {
 }
 ?>
 
-<a href="<?= URLROOT; ?>/registrations/register">Nieuw account aanmaken</a>
-
 <table>
   <thead>
     <th>Username</th>
