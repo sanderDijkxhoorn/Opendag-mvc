@@ -10,14 +10,14 @@ class Account
 
     public function getAccounts()
     {
-        $this->db->query("SELECT * FROM `users`;");
+        $this->db->query("SELECT `id`, `username`, `email`, `role` FROM `users`;");
 
         return $this->db->resultSet();;
     }
 
     public function getSingleAccount($id)
     {
-        $this->db->query("SELECT * FROM `users` WHERE `id` = :id;");
+        $this->db->query("SELECT `id`, `username`, `email`, `role` FROM `users` WHERE `id` = :id;");
         $this->db->bind(':id', $id, PDO::PARAM_INT);
 
         return $this->db->single();
