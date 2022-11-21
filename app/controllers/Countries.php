@@ -89,9 +89,7 @@ class Countries extends Controller
         header('Refresh: 2; url=' . URLROOT . '/countries/index');
       }
     } else {
-      $data = [
-        'title' => '<h1>Nieuw land toevoegen</h1>'
-      ];
+      $data = ['title' => '<h1>Nieuw land toevoegen</h1>'];
 
       $this->view('countries/create', $data);
     }
