@@ -8,12 +8,15 @@
     margin-right: auto;
 }
 
-th, td {
+th,
+td {
     text-align: left;
     padding: 8px;
 }
 
-#read tr:nth-child(even) { background-color: #f2f2f2 }
+#read tr:nth-child(even) {
+    background-color: #f2f2f2
+}
 
 th {
     background-color: #1DAEEC;
@@ -23,7 +26,8 @@ th {
 /* Dropdown menu in table */
 .dropbtn {
     border-radius: 3px;
-    background-color: rgba(232, 184, 50, 0.93);;
+    background-color: rgba(232, 184, 50, 0.93);
+    ;
     color: white;
     padding: 12px 28px;
     font-size: 16px;
@@ -49,18 +53,26 @@ th {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
-.dropdown-content a:hover { background-color: #ddd; }
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 
-.dropdown:hover .dropdown-content { display: block; }
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-.dropdown:hover .dropbtn { background-color: #818181; }
+.dropdown:hover .dropbtn {
+    background-color: #818181;
+}
 
 /* Table end */
-table { margin-bottom: 3rem; }
+table {
+    margin-bottom: 3rem;
+}
 
 /* UPDATE */
 .header {
@@ -75,7 +87,8 @@ table { margin-bottom: 3rem; }
     padding: 20px;
 }
 
-form, .content {
+form,
+.content {
     width: 50%;
     margin: 0px auto;
     padding: 20px;
@@ -104,8 +117,12 @@ form, .content {
 }
 
 .input-group select {
-    width: 20%;
-    margin-bottom: 1rem;
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 
 .btn {
