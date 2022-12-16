@@ -1,0 +1,59 @@
+body {
+    background-color: #f2f2f2;
+}
+
+/* Centreel shit */
+div#details {
+    text-align: center;
+    margin: 1em;
+}
+
+/* De foto's van de details */
+img.mooiedetailfoto {
+    width: 75vw;
+    height: 50vh;
+    object-fit: cover;
+
+    /* Mooie zwarte rand om de foto heen van 2 pixels */
+    /* Gradient border */
+    border: 2px solid black;
+    border-image: linear-gradient(to right, rgb(17, 169, 229), rgb(17, 201, 57), rgb(135, 19, 92), rgb(243, 5, 89)) 1;
+}
+
+div.mooiedetaildinge {
+    display: inline-block;
+    width: 75%;
+    height: 100%;
+    margin: 1em;
+    padding: 1em;
+
+    /* Mooie zwarte rand om de foto heen van 2 pixels */
+    /* Gradient border */
+    border: 2px solid black;
+    border-image: linear-gradient(to right, rgb(17, 169, 229), rgb(17, 201, 57), rgb(135, 19, 92), rgb(243, 5, 89)) 1;
+}
+
+
+.button {
+    background-color: #1c87c9;
+    border-radius: 12px;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+div.mooieborder {
+    margin: 1em;
+    padding: 2em 0;
+    border: 2px solid black;
+    border-image: linear-gradient(to right, rgb(243, 5, 89), rgb(135, 19, 92), rgb(17, 201, 57), rgb(17, 169, 229)) 1;
+}
+
+div.mooieborder>h1 {
+    margin-bottom: 1em;
+}

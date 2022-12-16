@@ -35,6 +35,17 @@ html {
     text-align: left;
 }
 
+.warning {
+    width: 92%;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid #8a6d3b;
+    color: #8a6d3b;
+    background: #fcf8e3;
+    border-radius: 5px;
+    text-align: left;
+}
+
 /* Footer */
 body {
     min-height: 100vh;
