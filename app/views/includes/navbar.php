@@ -34,7 +34,7 @@
         </div>
 
         <div class="nav-links">
-            <a href="<?= URLROOT ?>/homepages/about">Overige Informatie</a>
+            <a href="<?= URLROOT ?>/homepages/about">About Us</a>
             <a href="<?= URLROOT ?>/overviews/index">Overview</a>
             <a href="<?= URLROOT ?>/archives/index">Projecten</a>
             <a href="<?= URLROOT ?>/comments/index">Comment</a>
